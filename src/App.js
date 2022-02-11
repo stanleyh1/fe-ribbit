@@ -6,16 +6,17 @@ import Users from './Components/Users'
 import { useState } from 'react';
 import { userContext } from './utils/user';
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import frog from './frog.png'
+import frog from './images/frog.png'
+import jessjelly from '../src/images/jessjelly.jpeg'
 
 function App() {
   const [loggedInUser, setLoggedInUser] = useState({
-    username: 'jessjelly', name : 'Jess LovesCode', avatar_url: 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.CxW6g1vJumzy8stjI7oEqwHaHa%26pid%3DApi&f=1'}) 
+    username: 'jessjelly', name : 'Jess LovesCode', avatar_url: jessjelly }) 
   return (
   <BrowserRouter>
   <userContext.Provider value={{loggedInUser, setLoggedInUser}}>
   <div className='App'>
-    <img class='frog-img' src={frog} alt='frog-img' />
+    <img className='frog-img' src={frog} alt='frog-img' />
     <h1>Ribbit</h1>
     <Nav />
     <Routes>

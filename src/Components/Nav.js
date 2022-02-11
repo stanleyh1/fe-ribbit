@@ -22,15 +22,17 @@ return (
         Home
         </Link>
         {topicList.map((topic) => { return (
-            <Link to={`/articles/${topic.slug}`} key={topic.slug} >
+            <Link to={`/articles/${topic.slug}`} className='link' key={topic.slug} >
                 {topic.slug}
             </Link>
         )})}
         <Link to="/users" className="link">
         Users
         </Link>
+        <div className='navUser'>
         <span>{loggedInUser.username}</span>
-        <img className='currentUser' src={loggedInUser.avatar_url} alt='userImage'/>
+        <img className='UserImg' src={loggedInUser.avatar_url} alt='userImage'/>
+        </div>
         </nav>
     );
 };

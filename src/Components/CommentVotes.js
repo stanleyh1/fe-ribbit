@@ -22,7 +22,7 @@ patchCommentVotes(comment_id, 1)
 return (
 <>
 <p>Votes : {commentVotes + addedVotes}</p>
-<button onClick={handleClick} className='voteButton'>
+<button className='btn' onClick={handleClick} >
                 Vote for this comment!
 </button> 
 {isError ? <p>Something went wrong!</p> : null}

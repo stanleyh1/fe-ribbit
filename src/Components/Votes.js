@@ -21,8 +21,8 @@ patchVotes(article_id, 1)
 
 return (
 <>
-<p>Votes : {votes + addedVotes}</p>
-<button onClick={handleClick} className='voteButton'>
+<p className='votes'>Votes : {votes + addedVotes}</p>
+<button className='btn' onClick={handleClick} >
                 Vote for this article!
 </button> 
 {isError ? <p>Something went wrong!</p> : null}

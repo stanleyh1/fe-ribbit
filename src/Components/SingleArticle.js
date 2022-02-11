@@ -15,7 +15,6 @@ const SingleArticle = ({ loggedInUser }) => {
         'body' : '',
         'author' : loggedInUser.username});
     
-
     function handleSubmit(event) {
     event.preventDefault()
     
@@ -52,19 +51,19 @@ const SingleArticle = ({ loggedInUser }) => {
     return (
     <main>
     <div>
-        <h2>{article.title}</h2>
-        <p>{article.body}</p>
-        <p>Posted by: {article.author} At: {article.created_at}</p>
+        <h2 className='article-title'>{article.title}</h2>
+        <p className='article-text'>{article.body}</p>
+        <p className='author'>Posted by: {article.author} At: {article.created_at}</p>
         <Votes votes={article.votes} article_id={article.article_id} />
     </div>
-    <h3>Comments</h3>
+    <h3 className='comments'>Comments</h3>
     <ul>
         {comments.map((comment, index) => {
         return <li key={index} className='comment'>
-            <p>{comment.body}</p>
-            <p>Posted by {comment.author}</p>
+            <p classNAme='comments-body'>{comment.body}</p>
+            <p className = 'author'>Posted by {comment.author}</p>
             <CommentVotes commentVotes={comment.votes} comment_id={comment.comment_id} />
-            <button onClick={(e) => {
+            <button className='btn' onClick={(e) => {
             deleteComment(comment.comment_id, comment).then(() => {
                 setComments((currentComments) => {
                     return currentComments.filter((currentComment) => {
@@ -81,7 +80,7 @@ const SingleArticle = ({ loggedInUser }) => {
         <form onSubmit={handleSubmit}>
         <legend>Post a comment on {article.title}</legend>
         <input value={addComment.body} onChange={handleChange} placeholder="Post a comment..." required></input>
-        <button type="submit">Post comment</button>
+        <button className='btn' type="submit">Post comment</button>
         </form>
     </main>
     );

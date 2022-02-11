@@ -22,9 +22,9 @@ const Articles = () => {
         return <p>Loading...</p>
     }
     return (
-        <ul>
+        <ul className='articles'>
         {articles.map((article) => {
-        return <Link key={article.title} to={`/article/${article.article_id}`}><li>{article.title}
+        return <Link key={article.title} to={`/article/${article.article_id}`}><li className='link'>{article.title}
         </li></Link>
         })}
         </ul>
