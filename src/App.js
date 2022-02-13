@@ -1,13 +1,12 @@
 import './App.css';
-import Nav from './Components/Nav'
-import Articles from './Components/Articles'
+import Nav from './Components/Nav';
+import Articles from './Components/Articles';
 import SingleArticle from './Components/SingleArticle';
-import Users from './Components/Users'
+import Users from './Components/Users';
 import { useState } from 'react';
 import { userContext } from './utils/user';
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import frog from './images/frog.png'
-import jessjelly from '../src/images/jessjelly.jpeg'
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import jessjelly from '../src/images/jessjelly.jpeg';
 
 function App() {
   const [loggedInUser, setLoggedInUser] = useState({
@@ -16,8 +15,6 @@ function App() {
   <BrowserRouter>
   <userContext.Provider value={{loggedInUser, setLoggedInUser}}>
   <div className='App'>
-    <img className='frog-img' src={frog} alt='frog-img' />
-    <h1>Ribbit</h1>
     <Nav />
     <Routes>
     <Route path="/" element={<Articles />} />
@@ -26,6 +23,7 @@ function App() {
     <Route path="/article/:article_id" element={<SingleArticle loggedInUser={loggedInUser}/>} />
     <Route path="/comments/:comment_id" element={<SingleArticle loggedInUser={loggedInUser} />} />
     </Routes>
+    <a href='https://www.flaticon.com/free-icons/frog' title="frog icons" className='link' id='frog-icon'>Frog icons created by Culmbio - Flaticon</a>
   </div>
   </ userContext.Provider>
   </BrowserRouter>

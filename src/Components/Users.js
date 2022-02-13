@@ -22,15 +22,15 @@ const logIn = (newUser) => {
     return (
     <div>
         <h2>Users of Ribbit</h2>
-        <ul className="list">
+        <ul className='users'>
         {users.map((user) => {
             console.log(user)
             return (
-            <li key={user.username}>
-                <h3>{user.username}</h3>
-                <p>{user.name}</p>
-                <img className='avatar__img'src={user.avatar_url} alt={user.username} />
-                <button className='btn' onClick={() => logIn(user)}>Log me in</button>
+            <li className='user' key={user.username}>
+                <h3 id='username'>{user.username}</h3>
+                <p id='name'>{user.name}</p>
+                <img id='avatarImg'src={user.avatar_url} alt={user.username} />
+                <button id='logInBtn' className='btn' onClick={() => logIn(user)}>Log me in</button>
             </li>
             );
         })}
