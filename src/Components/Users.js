@@ -27,8 +27,11 @@ const logIn = (newUser) => {
             console.log(user)
             return (
             <li className='user' key={user.username}>
+                <div className="username_name_container">
                 <h3 id='username'>{user.username}</h3>
+                <br/>
                 <p id='name'>{user.name}</p>
+                </div>
                 <img id='avatarImg'src={user.avatar_url} alt={user.username} />
                 <button id='logInBtn' className='btn' onClick={() => logIn(user)}>Log me in</button>
             </li>
@@ -40,3 +43,4 @@ const logIn = (newUser) => {
 };
 
 export default Users;
+

@@ -50,18 +50,22 @@ const SingleArticle = ({ loggedInUser }) => {
 
     return (
     <main>
-    <div>
+    <div className='article-card-container'>
+    <div className='article-card'>
         <h2 className='article-title'>{article.title}</h2>
         <p className='article-text'>{article.body}</p>
         <p className='author'>Posted by: {article.author} At: {article.created_at}</p>
         <Votes votes={article.votes} article_id={article.article_id} />
     </div>
-    <h3 className='comments'>Comments</h3>
+    </div>
+    <div className='comments-container'>
+    <div className='comments'>
+    <h3>Comments</h3>
     <ul>
         {comments.map((comment, index) => {
         return <li key={index} className='comment'>
             <p classNAme='comments-body'>{comment.body}</p>
-            <p className = 'author'>Posted by {comment.author}</p>
+            <p className = 'comment-author'>Posted by {comment.author}</p>
             <CommentVotes commentVotes={comment.votes} comment_id={comment.comment_id} />
             <button className='btn' onClick={(e) => {
             deleteComment(comment.comment_id, comment).then(() => {
@@ -77,11 +81,15 @@ const SingleArticle = ({ loggedInUser }) => {
             </li>
             })}
         </ul>
+        <br/>
+        </div>
+        <br/>
         <form onSubmit={handleSubmit}>
-        <legend>Post a comment on {article.title}</legend>
+        <legend>Post a comment on '{article.title}'</legend>
         <input value={addComment.body} onChange={handleChange} placeholder="Post a comment..." required></input>
         <button className='btn' type="submit">Post comment</button>
         </form>
+        </div>
     </main>
     );
 };
