@@ -68,13 +68,16 @@ const SingleArticle = ({ loggedInUser }) => {
             <p className = 'comment-author'>Posted by {comment.author}</p>
             <CommentVotes commentVotes={comment.votes} comment_id={comment.comment_id} />
             <button className='btn' onClick={(e) => {
+                if ( comment.author === loggedInUser.username) {
             deleteComment(comment.comment_id, comment).then(() => {
                 setComments((currentComments) => {
                     return currentComments.filter((currentComment) => {
                         return comment.comment_id !== currentComment.comment_id
                     })
                 })
-            });
+            })
+            }
+            else { alert("Only the author can delete this comment!")}
             }}>
             Delete comment
             </button>

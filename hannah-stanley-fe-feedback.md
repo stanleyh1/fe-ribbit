@@ -32,7 +32,7 @@
 
 - [✅] Serves all articles / top articles
 - [✅] Can vote on articles
-- [ ] Can vote a maximum of once in either direction per page load
+- [✅  ] Can vote a maximum of once in either direction per page load
 - [✅] Votes are persistent when page is refreshed
 - [✅] Topic pages load only relevant articles (especially when navigating from one topic page to another)
 - [ ] Can sort articles by date created / comment_count / votes
@@ -41,14 +41,14 @@
 
 - [✅] Individual articles are served with comments
 - [✅] Can vote on comments
-- [ ] Can vote a maximum of once in either direction per page load
+- [✅] Can vote a maximum of once in either direction per page load
 - [✅] Votes are persistent when page is refreshed
 - [✅] Can post new comments, which are persistent
  - _lovely_ functionality here! Look at that controlled component! 😄
 
 ### Additional functionality:
 
-- [ ] Can only delete comments of logged in user
+- [✅] Can only delete comments of logged in user
 - [✅] Deleted comments don’t re-appear on re-render/refresh
 - [ ] sort comments by date created / votes
 - [ ] navigate over pages of articles (if implemented in back-end)
