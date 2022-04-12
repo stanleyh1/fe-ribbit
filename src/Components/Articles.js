@@ -12,7 +12,7 @@ const Articles = ({ loggedInUser }) => {
 
         function handleSubmit(event) {
             event.preventDefault()
-        
+            
             return postArticle(addArticle).then(() => {
                 setArticles((currentArticles) => {
                     const updatedArticles = [ addArticle, ...currentArticles]
@@ -20,7 +20,7 @@ const Articles = ({ loggedInUser }) => {
                 })
             });
             };
-        
+            
             const handleChange = (event) => {
                 const value = event.target.value
                 setAddArticle((currentArticle) => {
