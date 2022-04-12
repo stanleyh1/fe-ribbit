@@ -18,7 +18,7 @@ function App() {
     <Nav />
     <Routes>
     <Route path="/" element={<Articles />} />
-    <Route path="/articles/:topic" element={<Articles />} />
+    <Route path="/articles/:topic" element={<Articles loggedInUser={loggedInUser}/>} />
     <Route path="/users" element={<Users />} />
     <Route path="/article/:article_id" element={<SingleArticle loggedInUser={loggedInUser}/>} />
     <Route path="/comments/:comment_id" element={<SingleArticle loggedInUser={loggedInUser} />} />

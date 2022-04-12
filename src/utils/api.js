@@ -29,6 +29,13 @@ export const getArticlesByTopic = (topic) => {
     });
 };
 
+export const postArticle = (article) => {
+    return newsApi.post(`api/articles`, article).then((res) => {
+        console.log(res.data.article)
+        return res.data.articles;
+    });
+};
+
 export const getComments = (article_id) => {
     return newsApi.get(`api/articles/${article_id}/comments`).then((res) => {
         return res.data.comments
