@@ -6,6 +6,7 @@ import { userContext } from '../utils/user';
 import { useContext } from "react";
 import frog from '../images/frog.png';
 import Capitalise from "../utils/strings";
+import { useNavigate } from 'react-router-dom';
 
 
 const Nav = () => {
@@ -17,6 +18,8 @@ const Nav = () => {
             setTopicList(topicsFromApi)
         })
     }, [])
+
+    const navigate = useNavigate()
     
 return (
     <nav className="navBar">

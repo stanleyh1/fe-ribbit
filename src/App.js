@@ -8,6 +8,7 @@ import { userContext } from './utils/user';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import jessjelly from '../src/images/jessjelly.jpeg';
 
+
 function App() {
   const [loggedInUser, setLoggedInUser] = useState({
     username: 'jessjelly', name : 'Jess LovesCode', avatar_url: jessjelly }) 

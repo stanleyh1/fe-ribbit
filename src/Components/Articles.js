@@ -9,13 +9,13 @@ const Articles = ({ loggedInUser }) => {
     const [articles, setArticles] = useState([])
     const [isLoading, setIsLoading] = useState(true)
     const [addArticle, setAddArticle] = useState({})
+    const [sortType, setSortType] = useState('articles')
 
         function handleSubmit(event) {
             event.preventDefault()
-            
             return postArticle(addArticle).then(() => {
                 setArticles((currentArticles) => {
-                    const updatedArticles = [ addArticle, ...currentArticles]
+                    const updatedArticles = [addArticle, ...currentArticles]
                     return updatedArticles
                 })
             });
@@ -40,15 +40,33 @@ const Articles = ({ loggedInUser }) => {
         })
     }, [topic])
     
+    useEffect(() => {
+        const sortArray = type => {
+            const types = {
+                created_at: 'created_at',
+                votes: 'votes',
+            };
+            const sortProperty = types[type];
+            const sorted = [...articles].sort((a, b) => b[sortProperty] - a[sortProperty]);
+            setArticles(sorted);
+            };
+            sortArray(sortType);
+    }, [sortType]);
+
 
     if (isLoading)  {
         return <p>Loading...</p>
     }
     return (
         <>
+        <legend>Sort By: </legend>
+        <select onChange={(e) => setSortType(e.target.value)}> 
+        <option value="created_at">Date</option>
+        <option value="votes">Number of Votes</option>
+        </select>
         <ul className='articles'>
         {articles.map((article) => { 
-        return <Link key={article.title} to={`/article/${article.article_id}`} className='link'><li className='article-card-home'>{article.title}
+        return <Link key={article.title} to={`/article/${article.article_id}`} className='link'><li className='article-card-home'><h4>{article.title}</h4><p>{article.created_at}</p><p>{article.votes}</p><p>{article.author}</p>
         </li></Link>
         })}
         </ul>

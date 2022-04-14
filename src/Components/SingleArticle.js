@@ -14,6 +14,8 @@ const SingleArticle = ({ loggedInUser }) => {
         'votes' : 0,
         'body' : '',
         'author' : loggedInUser.username});
+        const [sortType, setSortType] = useState('comments')
+        const [isLoading, setIsLoading] = useState(true)
     
     function handleSubmit(event) {
     event.preventDefault()
@@ -45,9 +47,26 @@ const SingleArticle = ({ loggedInUser }) => {
     useEffect(() => {
         getComments(article_id).then((comments) => {
             setComments(comments)
+            setIsLoading(false)
         })
     }, [article_id])
 
+    useEffect(() => {
+        const sortArray = type => {
+            const types = {
+                created_at: 'created_at',
+                votes: 'votes',
+            };
+            const sortProperty = types[type];
+            const sorted = [...comments].sort((a, b) => b[sortProperty] - a[sortProperty]);
+            setComments(sorted);
+            };
+            sortArray(sortType);
+    }, [sortType]);
+
+    if (isLoading)  {
+        return <p>Loading...</p>
+    }
     return (
     <main>
     <div className='article-card-container'>
@@ -61,6 +80,11 @@ const SingleArticle = ({ loggedInUser }) => {
     <div className='comments-container'>
     <div className='comments'>
     <h3>Comments</h3>
+    <legend>Sort By: </legend>
+        <select onChange={(e) => setSortType(e.target.value)}> 
+        <option value="created_at">Date</option>
+        <option value="votes">Number of Votes</option>
+        </select>
     <ul>
         {comments.map((comment, index) => {
         return <li key={index} className='comment'>
