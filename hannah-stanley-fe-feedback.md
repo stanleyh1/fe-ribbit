@@ -35,7 +35,7 @@
 - [✅] Can vote a maximum of once in either direction per page load
 - [✅] Votes are persistent when page is refreshed
 - [✅] Topic pages load only relevant articles (especially when navigating from one topic page to another)
-- [ ] Can sort articles by date created / comment_count / votes
+- [✅] Can sort articles by date created / comment_count / votes
 
 ### Individual Article / Comments
 
@@ -70,15 +70,15 @@
 - [✅] Components reused where possible (`Articles` / `Voter`...)
 - [✅] Minimal state - don't hold derivable data in state
 - [✅] Set state correctly, using previous state where possible
-- [~] Handle asynchronicity clearly (i.e. isLoading pattern)
+- [✅] Handle asynchronicity clearly (i.e. isLoading pattern)
  - implemented in `Articles` - great! Could we implement it in other components such as `SingleArticle`?
 - [✅] Functions are DRY (`handleChange` for controlled components / api calls)
 - [✅] Use object destructuring where possible
 - [✅] Tidy? If not: ESLint / Prettier
 - [✅] `node_modules` git ignored
-- [~] No `console.log`s / comments
+- [✅] No `console.log`s / comments
  - mostly yes, just a couple of stragglers :)
-- [~] remove unnecessary files (e.g. App.test.js)
+- [✅] remove unnecessary files (e.g. App.test.js)
  - almost all done - just noticed there is an `app.css` and an `index.css`, perhaps you could combine them and/or remove one?
 
 ## MAKE SURE ALL TESTS ARE STILL PASSING IN BACK END

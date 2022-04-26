@@ -1,12 +1,14 @@
-import { useState } from 'react'
-import { patchCommentVotes } from '../utils/api'
+import { useState } from 'react';
+import { patchCommentVotes } from '../utils/api';
 
 const CommentVotes = (props) => {
+
 const {commentVotes, comment_id} = props
-const [addedVotes, setAddedVotes] = useState(0)
-const [isError, setIsError] = useState(false)
-const [disableUp, setDisableUp] = useState(false)
-const [disableDown, setDisableDown] = useState(false)
+
+const [addedVotes, setAddedVotes] = useState(0);
+const [isError, setIsError] = useState(false);
+const [disableUp, setDisableUp] = useState(false);
+const [disableDown, setDisableDown] = useState(false);
 
 const handleUpVoteClick = () => {
 setAddedVotes((prevVotes) => {

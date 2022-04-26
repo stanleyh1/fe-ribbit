@@ -1,16 +1,11 @@
 import { useContext, useState, useEffect } from "react";
 import { userContext } from '../utils/user';
-import { getUsers } from '../utils/api'
-
-// import jessjelly from '../images/jessjelly.jpeg';
-// import amy from '../images/amypoehler.jpeg';
-// import grumpy from '../images/grumpy.jpeg';
-// import weegem from '../images/weegem.jpeg'
+import { getUsers } from '../utils/api';
 
 const Users = () => {
 
-    const [users, setUsers] = useState([])
-    const [isLoading, setIsLoading] = useState(true)
+    const [users, setUsers] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
         getUsers().then((users) => {
@@ -19,12 +14,6 @@ const Users = () => {
         })
     }, [])
 
-// const users = [
-//     {username:'weegembump', name:'Gemma Weeg', avatar_url: weegem},
-//     { username: 'happyamy2016', name : 'Amy Coder', avatar_url: amy},
-//     {username: 'jessjelly', name : 'Jess LovesCode', avatar_url: jessjelly},
-//     {username: 'grumpy19', name : 'Mr Grumpy', avatar_url: grumpy}
-//     ]
 
 const { setLoggedInUser } = useContext(userContext)
 

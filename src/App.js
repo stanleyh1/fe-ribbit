@@ -6,12 +6,16 @@ import Users from './Components/Users';
 import { useState } from 'react';
 import { userContext } from './utils/user';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import jessjelly from '../src/images/jessjelly.jpeg';
 
 
 function App() {
   const [loggedInUser, setLoggedInUser] = useState({
-    username: 'jessjelly', name : 'Jess LovesCode', avatar_url: jessjelly }) 
+    username: 'jessjelly',
+    name: 'Jess Jelly',
+    avatar_url:
+      'https://vignette.wikia.nocookie.net/mrmen/images/4/4f/MR_JELLY_4A.jpg/revision/latest?cb=20180104121141'
+  }) 
+
   return (
   <BrowserRouter>
   <userContext.Provider value={{loggedInUser, setLoggedInUser}}>

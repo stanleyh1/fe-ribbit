@@ -1,5 +1,5 @@
-import { useState } from 'react'
-import { patchVotes } from '../utils/api'
+import { useState } from 'react';
+import { patchVotes } from '../utils/api';
 
 export default function Votes(props) {
 const {votes, article_id} = props
@@ -46,7 +46,7 @@ return (
 <>
 <p className='votes'>Votes : {votes + addedVotes}</p>
 <button className='btn' disabled={disableDown} onClick={handleDownVoteClick}>👎</button> 
-<text>Vote for this article!</text>
+<text> Vote for this article! </text>
 <button className='btn' disabled={disableUp} onClick={handleUpVoteClick}>👍</button>
 {isError ? <p>Something went wrong!</p> : null}
 </>

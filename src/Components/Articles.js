@@ -1,37 +1,16 @@
 import React from "react";
 import { Link, useParams } from "react-router-dom";
-import { getArticles, postArticle } from '../utils/api';
 import { useState, useEffect } from 'react';
+import { getArticles } from '../utils/api';
+import formatDate from '../utils/dates';
 
 
 const Articles = ({ loggedInUser }) => {
 
-    const [articles, setArticles] = useState([])
-    const [isLoading, setIsLoading] = useState(true)
-    const [addArticle, setAddArticle] = useState({})
-    const [sortType, setSortType] = useState('articles')
-
-        function handleSubmit(event) {
-            event.preventDefault()
-            return postArticle(addArticle).then(() => {
-                setArticles((currentArticles) => {
-                    const updatedArticles = [addArticle, ...currentArticles]
-                    return updatedArticles
-                })
-            });
-            };
-            
-            const handleChange = (event) => {
-                const value = event.target.value
-                setAddArticle((currentArticle) => {
-                    const newArticle = {...currentArticle}
-                    newArticle.body = value
-                    return newArticle
-                })
-                console.log(addArticle)
-            }
-
-    const { topic } = useParams()
+    const [articles, setArticles] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
+    const [sortType, setSortType] = useState('articles');
+    const { topic } = useParams();
     
     useEffect(() => {
         getArticles(topic).then((articlesFromApi) => {
@@ -66,19 +45,10 @@ const Articles = ({ loggedInUser }) => {
         </select>
         <ul className='articles'>
         {articles.map((article) => { 
-        return <Link key={article.title} to={`/article/${article.article_id}`} className='link'><li className='article-card-home'><h4>{article.title}</h4><p>{article.created_at}</p><p>{article.votes}</p><p>{article.author}</p>
+        return <Link key={article.title} to={`/article/${article.article_id}`} className='link'><li className='article-card-home'><h3>{article.title}</h3><p>{formatDate(article.created_at)}</p><p>Votes: {article.votes}</p><p>Posted by: {article.author}</p>
         </li></Link>
         })}
         </ul>
-        <br/>
-        <form onSubmit={handleSubmit}>
-        <legend>Post an Article</legend>
-        <input value={addArticle.title} onChange={handleChange} placeholder= "title" required></input>
-        <br/>
-        <input value={addArticle.body} onChange={handleChange} placeholder="write your article here" required></input>
-        <br/>
-        <button className='btn' type="submit">Post Article</button>
-        </form>
         </>
     )
 }

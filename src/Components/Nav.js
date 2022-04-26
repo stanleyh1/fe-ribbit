@@ -1,17 +1,15 @@
 import React from "react";
-import { getTopics } from '../utils/api';
-import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { useState, useEffect, useContext } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { userContext } from '../utils/user';
-import { useContext } from "react";
-import frog from '../images/frog.png';
+import { getTopics } from '../utils/api';
 import Capitalise from "../utils/strings";
-import { useNavigate } from 'react-router-dom';
+import frog from '../images/frog.png';
 
 
 const Nav = () => {
-    const [topicList, setTopicList] = useState([])
-    const { loggedInUser } = useContext(userContext)
+    const [topicList, setTopicList] = useState([]);
+    const { loggedInUser } = useContext(userContext);
 
     useEffect(() => {
         getTopics().then((topicsFromApi) => {
@@ -20,11 +18,14 @@ const Nav = () => {
     }, [])
 
     const navigate = useNavigate()
+    const handleFrogClick = () => {
+        navigate('/')
+      }
     
 return (
     <nav className="navBar">
         <div className='ribbit'>
-        <img className='frog-img' src={frog} alt='frog-img' />
+        <img onClick={handleFrogClick} className='frog-img' src={frog} alt='frog-img' />
         <h1>Ribbit</h1>
         </div>
 

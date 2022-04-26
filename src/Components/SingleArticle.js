@@ -1,14 +1,17 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { getSingleArticle, getComments, postComment, deleteComment } from '../utils/api';
 import { useParams } from "react-router";
 import Votes from "./Votes";
-import CommentVotes from './CommentVotes'
+import CommentVotes from './CommentVotes';
+import { getSingleArticle, getComments, postComment, deleteComment } from '../utils/api';
+import formatDate from '../utils/dates';
 
 const SingleArticle = ({ loggedInUser }) => {
+    
     const { article_id } = useParams();
     const [article, setArticle] = useState({});
-    const [comments, setComments] = useState([])
+    const [comments, setComments] = useState([]);
+
     const [addComment, setAddComment] = useState(
         {'username' : loggedInUser.username, 
         'votes' : 0,
@@ -16,6 +19,8 @@ const SingleArticle = ({ loggedInUser }) => {
         'author' : loggedInUser.username});
         const [sortType, setSortType] = useState('comments')
         const [isLoading, setIsLoading] = useState(true)
+
+
     
     function handleSubmit(event) {
     event.preventDefault()
@@ -73,7 +78,7 @@ const SingleArticle = ({ loggedInUser }) => {
     <div className='article-card'>
         <h2 className='article-title'>{article.title}</h2>
         <p className='article-text'>{article.body}</p>
-        <p className='author'>Posted by: {article.author} At: {article.created_at}</p>
+        <p className='author'>Posted by {article.author} on {formatDate(article.created_at)}</p>
         <Votes votes={article.votes} article_id={article.article_id} />
     </div>
     </div>
@@ -88,8 +93,9 @@ const SingleArticle = ({ loggedInUser }) => {
     <ul>
         {comments.map((comment, index) => {
         return <li key={index} className='comment'>
-            <p classNAme='comments-body'>{comment.body}</p>
-            <p className = 'comment-author'>Posted by {comment.author}</p>
+            <p className='comments-body'>{comment.body}</p>
+            <p className = 'comment-author'>Posted by: {comment.author}</p>
+            <p className='comments-date'> on: {formatDate(comment.created_at)}</p>
             <CommentVotes commentVotes={comment.votes} comment_id={comment.comment_id} />
             <button className='btn' onClick={(e) => {
                 if ( comment.author === loggedInUser.username) {

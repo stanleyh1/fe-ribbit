@@ -8,6 +8,12 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+text {
+  font-family: 'Roboto Slab', serif;
+  color: #E9DAC1;
+  text-decoration: none;
+}
+
 .App {
   text-align: center;
   background-color: #191919;
