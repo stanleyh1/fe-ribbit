@@ -1,5 +1,5 @@
 # Welcome to Ribbit
-## A Reddit style news aggregate
+## A Reddit style news aggregator
 
 Ribbit displays articles based on various topics and allows you to vote and comment on these articles.
 
