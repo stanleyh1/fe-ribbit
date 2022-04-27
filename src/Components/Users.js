@@ -30,15 +30,12 @@ if (isLoading)  {
         <ul className='users'>
         {users.map((user) => {
             return (
-            <li className='user' key={user.username}>
-                <div className="username_name_container">
-                <h3 id='username'>{user.username}</h3>
-                <br/>
-                <p id='name'>{user.name}</p>
-                </div>
+            <div className='users'><li className='user' key={user.username}>
                 <img id='avatarImg'src={user.avatar_url} alt={user.username} />
-                <button id='logInBtn' className='btn' onClick={() => logIn(user)}>Log me in</button>
-            </li>
+                <h3 id='name'>{user.name}</h3>
+                <div className='name'><p id='username'>{user.username}</p></div>
+                <div className='logInBtn'><button id='logInBtn' className='btn' onClick={() => logIn(user)}>Log me in</button></div>
+            </li></div>
             );
         })}
         </ul>

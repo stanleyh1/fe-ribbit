@@ -1,0 +1,68 @@
+.article-card {
+  border-radius: 10px;
+  margin: 10px;
+  padding: 20px;
+  background-color: #76A944;
+  background-color:  rgba(255, 255, 255, 0.2);
+  width: 90vh;
+  }
+  
+  .article-text {
+    font-family: 'Roboto Slab', serif;
+    color: #E9DAC1;
+    text-align: left;
+  }
+  
+  .author {
+    color: #E9DAC1;
+    text-align: left;
+  }
+  
+  .comments-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .comment-card {
+    border-radius: 5px;
+    margin: 10px;
+    padding: 20px;
+    background-color: #76A944;
+    background-color:  rgba(255, 255, 255, 0.2);
+    width: 90vh;
+  }
+  
+  .comments-header {
+    color: #E9DAC1;
+    font-size: 2em;
+  }
+
+  .existing-comments {
+    display: flex;
+    justify-content: center;
+    max-width: 800px;
+    margin: auto;
+  }
+
+  .post-comment-form {
+    margin-top: 20px;
+  }
+
+  .new-comment-input {
+    width: 300px;
+  }
+  
+  .comment {
+    font-family: 'Montserrat', sans-serif;
+    color: #E9DAC1
+  }
+  .article-item {
+    padding: 15px;
+  }
+  
+  legend {
+    color: #E9DAC1
+  }
+
+  

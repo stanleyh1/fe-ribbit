@@ -1,0 +1,49 @@
+.users {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    
+  }
+
+  .user {
+    border-radius: 10px;
+    margin: 10px;
+    padding: 10px;
+    background-color: #76A944;
+    background-color:  rgba(255, 255, 255, 0.2);
+    display: grid;
+    grid-template-rows: 60%, 35%, 5%;
+    width: 220px;
+  }
+
+      #username {
+        grid-row: 2;
+      }
+
+      #name {
+        grid-row: 1;
+      }
+
+      #avatarImg {
+        height: 50px;
+        width: 50px;
+        border-radius: 50px;
+        grid-row: 1;
+        padding: 10px;
+        padding-top: 15px;
+      }
+
+      #logInBtn {
+        grid-row: 3;
+        /* grid-column: 1 / span 2; */
+      }
+
+      .name {
+        display: flex;
+        justify-content: center;
+      }
+
+      .logInBtn {
+        display: flex;
+        justify-content: center;
+      }

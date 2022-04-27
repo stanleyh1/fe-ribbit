@@ -45,7 +45,7 @@ const Articles = ({ loggedInUser }) => {
         </select>
         <ul className='articles'>
         {articles.map((article) => { 
-        return <Link key={article.title} to={`/article/${article.article_id}`} className='link'><li className='article-card-home'><h3>{article.title}</h3><p>{formatDate(article.created_at)}</p><p>Votes: {article.votes}</p><p>Posted by: {article.author}</p>
+        return <Link key={article.title} to={`/article/${article.article_id}`} className='link'><li className='article-card-home'><p className='article-title'>{article.title}</p><p className='article-info'>{formatDate(article.created_at)}</p><p className='article-info'>Votes: {article.votes}</p><p className='article-info'>Posted by: {article.author}</p>
         </li></Link>
         })}
         </ul>

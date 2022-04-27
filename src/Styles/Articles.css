@@ -1,0 +1,46 @@
+.article-card-container {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .article-card-home {
+    border-radius: 10px;
+      margin: 10px;
+      padding: 20px;
+      background-color: #76A944;
+      background-color:  rgba(255, 255, 255, 0.2);
+      width: 350px;
+      height: 200px;
+      
+  }
+  .article-card {
+    border-radius: 10px;
+    margin: 10px;
+    padding: 20px;
+    background-color: #76A944;
+    background-color:  rgba(255, 255, 255, 0.2);
+    width: 90vh;
+    }
+  
+  .article-title {
+    color: #f76565;
+    font-size: 1.25em;
+  }
+
+  .article-info {
+    color: #E9DAC1;
+    font-size: 0.90em;
+  }
+
+  .articles {
+    padding: 20px;
+    font-family: 'Montserrat', sans-serif;
+    color: #E9DAC1;
+    text-decoration: none;
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    margin: auto;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }

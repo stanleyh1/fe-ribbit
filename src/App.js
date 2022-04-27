@@ -1,8 +1,13 @@
 import './App.css';
+import './Styles/Articles.css'
+import './Styles/Nav.css'
+import './Styles/SingleArticle.css'
+import './Styles/Users.css'
 import Nav from './Components/Nav';
 import Articles from './Components/Articles';
 import SingleArticle from './Components/SingleArticle';
 import Users from './Components/Users';
+import Error from './Components/Error'
 import { useState } from 'react';
 import { userContext } from './utils/user';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
@@ -27,6 +32,7 @@ function App() {
     <Route path="/users" element={<Users />} />
     <Route path="/article/:article_id" element={<SingleArticle loggedInUser={loggedInUser}/>} />
     <Route path="/comments/:comment_id" element={<SingleArticle loggedInUser={loggedInUser} />} />
+    <Route path="/*" element={<Error />} />
     </Routes>
     <a href='https://www.flaticon.com/free-icons/frog' title="frog icons" className='link' id='frog-icon'>Frog icons created by Culmbio - Flaticon</a>
   </div>

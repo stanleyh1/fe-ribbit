@@ -76,23 +76,37 @@ const SingleArticle = ({ loggedInUser }) => {
     <main>
     <div className='article-card-container'>
     <div className='article-card'>
-        <h2 className='article-title'>{article.title}</h2>
+        <h2 className='single-article-title'>{article.title}</h2>
         <p className='article-text'>{article.body}</p>
         <p className='author'>Posted by {article.author} on {formatDate(article.created_at)}</p>
         <Votes votes={article.votes} article_id={article.article_id} />
     </div>
     </div>
+   
     <div className='comments-container'>
-    <div className='comments'>
-    <h3>Comments</h3>
+    <div className='post-comment-form'>
+        <form className='post-comments-form' onSubmit={handleSubmit}>
+        <legend>Post a comment on '{article.title}'</legend>
+        <input className='new-comment-input' value={addComment.body} onChange={handleChange} placeholder="Post a comment..." required></input>
+        <button className='btn' type="submit">Post comment</button>
+        </form>
+        </div>   
+        <br/> 
+    <h3 className='comments-header'>Comments</h3>
+    <br/>
+    <div className='comments-sort-by'>
     <legend>Sort By: </legend>
         <select onChange={(e) => setSortType(e.target.value)}> 
         <option value="created_at">Date</option>
         <option value="votes">Number of Votes</option>
         </select>
+        </div>
+
+        <br/>
+    <div className='existing-comments'>
     <ul>
         {comments.map((comment, index) => {
-        return <li key={index} className='comment'>
+        return <div className='comment-card'><li key={index} className='comment'>
             <p className='comments-body'>{comment.body}</p>
             <p className = 'comment-author'>Posted by: {comment.author}</p>
             <p className='comments-date'> on: {formatDate(comment.created_at)}</p>
@@ -111,17 +125,11 @@ const SingleArticle = ({ loggedInUser }) => {
             }}>
             Delete comment
             </button>
-            </li>
+            </li></div>
             })}
         </ul>
-        <br/>
         </div>
         <br/>
-        <form onSubmit={handleSubmit}>
-        <legend>Post a comment on '{article.title}'</legend>
-        <input value={addComment.body} onChange={handleChange} placeholder="Post a comment..." required></input>
-        <button className='btn' type="submit">Post comment</button>
-        </form>
         </div>
     </main>
     );
