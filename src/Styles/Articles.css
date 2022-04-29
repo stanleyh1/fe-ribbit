@@ -1,6 +1,9 @@
 .article-card-container {
     display: flex;
     justify-content: center;
+    align-items: center;
+    padding-inline-start: 0%;
+    margin: 10px;
   }
   
   .article-card-home {
@@ -9,7 +12,7 @@
       padding: 20px;
       background-color: #76A944;
       background-color:  rgba(255, 255, 255, 0.2);
-      width: 350px;
+      width: 340px;
       height: 200px;
       
   }
