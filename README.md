@@ -3,7 +3,7 @@
 
 Ribbit displays articles based on various topics and allows you to vote and comment on these articles.
 
-The hosted version can be accessed here: https://chipper-mochi-ea31e1.netlify.app/
+The hosted version can be accessed here: https://ribbit-nc-news.netlify.app/
 
 The backend repo can be found here: https://github.com/stanleyh1/be-ribbit
 
