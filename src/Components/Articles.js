@@ -21,12 +21,12 @@ const Articles = ({ loggedInUser }) => {
     
     useEffect(() => {
         const sortArray = type => {
-            const types = {
-                created_at: 'created_at',
-                votes: 'votes',
-            };
-            const sortProperty = types[type];
-            const sorted = [...articles].sort((a, b) => b[sortProperty] - a[sortProperty]);
+            const sorted = [...articles]
+                .map((article) => {
+                    article.created_at = new Date(article.created_at)
+                    return article
+                })
+                .sort((articleA, articleB) => articleB[type] - articleA[type]);
             setArticles(sorted);
             };
             sortArray(sortType);

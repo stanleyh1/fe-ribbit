@@ -16,6 +16,7 @@ const SingleArticle = ({ loggedInUser }) => {
         {'username' : loggedInUser.username, 
         'votes' : 0,
         'body' : '',
+        'created_at' : (new Date()).toISOString(),
         'author' : loggedInUser.username});
         const [sortType, setSortType] = useState('comments')
         const [isLoading, setIsLoading] = useState(true)
@@ -24,11 +25,15 @@ const SingleArticle = ({ loggedInUser }) => {
     
     function handleSubmit(event) {
     event.preventDefault()
-    
     return postComment(article_id, addComment).then(() => {
         setComments((currentComments) => {
             const updatedComments = [ addComment, ...currentComments]
             return updatedComments
+        })
+        setAddComment((currentComment) => {
+            const newComment = {...currentComment}
+            newComment.body = ''
+            return newComment
         })
     });
     };
@@ -40,7 +45,6 @@ const SingleArticle = ({ loggedInUser }) => {
             newComment.body = value
             return newComment
         })
-        console.log(addComment)
     }
 
     useEffect(() => {
@@ -58,12 +62,12 @@ const SingleArticle = ({ loggedInUser }) => {
 
     useEffect(() => {
         const sortArray = type => {
-            const types = {
-                created_at: 'created_at',
-                votes: 'votes',
-            };
-            const sortProperty = types[type];
-            const sorted = [...comments].sort((a, b) => b[sortProperty] - a[sortProperty]);
+            const sorted = [...comments]
+                .map((comment) => {
+                    comment.created_at = new Date(comment.created_at)
+                    return comment
+                })
+                .sort((commentA, commentB) => commentB[type] - commentA[type]);
             setComments(sorted);
             };
             sortArray(sortType);
@@ -82,7 +86,7 @@ const SingleArticle = ({ loggedInUser }) => {
         <Votes votes={article.votes} article_id={article.article_id} />
     </div>
     </div>
-   
+
     <div className='comments-container'>
     <div className='post-comment-form'>
         <form className='post-comments-form' onSubmit={handleSubmit}>

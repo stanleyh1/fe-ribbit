@@ -19,6 +19,9 @@ Individual comments are not accessed directly, but displayed as part of the arti
 
 clone this repository to an appropriate area on your hard drive with git clone https://github.com/stanleyh1/
 
-Type cd hs-nc-news once the download is complete, and install the relevant dependencies with npm i react @reach/router axios
+Type cd hs-nc-news once the download is complete, and install the relevant dependencies with 
 
-Once installation is complete, you should be able to launch a local version of the site with npm start, which by default will open up the site on localhost:3000
+```npm i react @reach/router axios```
+
+Once installation is complete, you should be able to launch a local version of the site with 
+```npm start``` which by default will open up the site on localhost:3000
